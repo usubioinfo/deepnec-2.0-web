@@ -52,7 +52,7 @@ bash dockerbuild.sh
 docker run --rm -p 3365:3365 deepnec-2.0-web:latest
 ```
 
-Open `http://localhost:3365/deepnec-2.0/`. The production image serves the frontend and API from the same container and port. During the image build, DeepNEC CLI `v2.0.0` is downloaded from `navduhan/deepnec-2.0`; the official S4PRED weights are downloaded and verified against the upstream MD5 checksum. Override the CLI source when needed with Docker build arguments `DEEPNEC_REPO` and `DEEPNEC_REF`.
+Open `http://localhost:3365/deepnec-2.0/`. The production image serves the frontend and API from the same container and port. During the image build, DeepNEC CLI `v2.0.1` is downloaded from `usubioinfo/deepnec-2.0`; the official S4PRED weights are downloaded and verified against the upstream MD5 checksum. Override the CLI source when needed with Docker build arguments `DEEPNEC_REPO` and `DEEPNEC_REF`.
 
 ### Option 2: Local Development Setup
 
@@ -61,7 +61,7 @@ Open `http://localhost:3365/deepnec-2.0/`. The production image serves the front
 ./download_deepnec_engine.sh
 ```
 
-This downloads the pinned `v2.0.0` release from `navduhan/deepnec-2.0`. To test another tag or commit without changing tracked files, set `GITHUB_REF`, for example `GITHUB_REF=<commit-sha> ./download_deepnec_engine.sh`.
+This downloads the pinned `v2.0.1` release from `usubioinfo/deepnec-2.0`. To test another tag or commit without changing tracked files, set `GITHUB_REF`, for example `GITHUB_REF=<commit-sha> ./download_deepnec_engine.sh`.
 
 #### 2. Start Backend API Server
 ```bash

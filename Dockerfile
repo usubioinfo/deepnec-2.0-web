@@ -36,8 +36,8 @@ RUN groupadd -r deepnec && useradd -r -g deepnec -d /app -s /bin/bash deepnec
 WORKDIR /app
 
 # Fetch a versioned DeepNEC CLI release rather than duplicating it in this repo.
-ARG DEEPNEC_REPO=navduhan/deepnec-2.0
-ARG DEEPNEC_REF=v2.0.0
+ARG DEEPNEC_REPO=usubioinfo/deepnec-2.0
+ARG DEEPNEC_REF=v2.0.1
 RUN mkdir -p /app/backend/deepnec-2.0 && \
     curl -fsSL "https://github.com/${DEEPNEC_REPO}/archive/${DEEPNEC_REF}.tar.gz" \
       | tar -xz -C /app/backend/deepnec-2.0 --strip-components=1 && \

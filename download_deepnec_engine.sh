@@ -6,8 +6,8 @@ set -e
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 TARGET_DIR="${SCRIPT_DIR}/backend/deepnec-2.0"
 
-GITHUB_REPO="${GITHUB_REPO:-navduhan/deepnec-2.0}"
-GITHUB_REF="${GITHUB_REF:-v2.0.0}"
+GITHUB_REPO="${GITHUB_REPO:-usubioinfo/deepnec-2.0}"
+GITHUB_REF="${GITHUB_REF:-v2.0.1}"
 TAR_URL="https://github.com/${GITHUB_REPO}/archive/${GITHUB_REF}.tar.gz"
 
 if [[ -d "${TARGET_DIR}/deepNEC" ]]; then
