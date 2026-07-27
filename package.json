@@ -1,0 +1,8 @@
+{
+  "name": "deepnec-2.0-web",
+  "version": "2.0.0",
+  "description": "DeepNEC 2.0 Web Application Repository",
+  "author": "Naveen Duhan",
+  "license": "GPL-3.0-only",
+  "private": true
+}

@@ -1,0 +1,29 @@
+/* Author: Naveen Duhan */
+.psipredbutton {
+    stroke: black;
+    fill: white;
+  }
+  .psipredbutton.active {
+    stroke: black;
+    fill: black;
+  }
+
+  .pngbutton {
+    stroke: black;
+    fill: white;
+  }
+
+  .svgbutton {
+    stroke: black;
+    fill: white;
+  }
+
+  .pngbutton.active {
+    stroke: black;
+    fill: black;
+  }
+
+  .svgbutton.active {
+    stroke: rgb(236, 231, 231);
+    fill: rgb(243, 236, 236);
+  }

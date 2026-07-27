@@ -1,0 +1,33 @@
+/* Author: Naveen Duhan */
+@import "src/scss/colors";
+@import "src/scss/globals";
+
+.separator{
+	text-align: center;
+	padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+.purpose{
+	text-align:justify;
+	// max-width: 600px;
+    margin: auto;
+    border-radius: 12px;
+}
+
+.cardd{
+	text-align:justify;
+	// max-width: 600px;
+    padding:10px;
+}
+.divider{
+	z-index: 0;
+    position: relative;
+    height: 2px;
+    background-color:#F16278;
+    display: block;
+    // margin-top: -12px;
+    margin: auto;
+    text-align: center;
+}

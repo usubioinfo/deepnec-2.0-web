@@ -1,0 +1,3 @@
+[submodule "s4pred"]
+	path = s4pred
+	url = https://github.com/psipred/s4pred.git

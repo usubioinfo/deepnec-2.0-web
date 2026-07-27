@@ -1,0 +1,25 @@
+/* Author: Naveen Duhan */
+.app-footer {
+  background-color: #ffffff;
+  padding: 24px 10px;
+  margin-top: 50px;
+  width: 100%;
+
+  p {
+    color: #64748b;
+    font-size: 0.85rem;
+    margin: 0;
+
+    a {
+      color: #475569;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #0f2439;
+        text-decoration: underline;
+      }
+    }
+  }
+}

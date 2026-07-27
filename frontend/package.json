@@ -1,0 +1,36 @@
+{
+  "name": "deepnec-frontend",
+  "version": "0.1.0",
+  "author": "Naveen Duhan",
+  "license": "GPL-3.0-only",
+  "private": true,
+  "homepage": "/deepnec-2.0",
+  "dependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "antd": "^4.20.1",
+    "axios": "^1.7.5",
+    "blueimp-canvas-to-blob": "^3.29.0",
+    "bootstrap": "^5.3.3",
+    "d3": "^7.9.0",
+    "file-saver": "^2.0.5",
+    "ngl": "^2.3.1",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.4",
+    "react-dom": "^18.3.1",
+    "sass": "^1.78.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.4.1",
+    "jsdom": "^26.1.0",
+    "vite": "^6.3.5",
+    "vitest": "^3.1.3"
+  },
+  "scripts": {
+    "start": "vite --host 0.0.0.0 --port 3000",
+    "local": "node server.js",
+    "build": "vite build",
+    "update": "npm i && vite build && pm2 restart deepnec-frontend",
+    "test": "vitest run"
+  }
+}

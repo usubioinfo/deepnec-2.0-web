@@ -1,0 +1,40 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+
+# React Build output
+frontend/build/
+
+# Backend temporary files
+backend/src/prediction/tmp/*
+!backend/src/prediction/tmp/.gitkeep
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Python caches and S4PRED weights (downloaded and checksum-verified at build time)
+__pycache__/
+*.py[cod]
+s4pred/weights/
+s4pred/weights.tar.gz
+
+# Generated documentation, environments, and obsolete root-level Python lock metadata
+**/docs/_build/
+**/.venv/
+/pyproject.toml
+/uv.lock
+
+# OS Files
+.DS_Store
+Thumbs.db
+*:Zone.Identifier
+
+# Generated outputs from the embedded DeepNEC CLI
+backend/deepnec-2.0/
+backend/deepnec-2.0/deepnec_results/
+backend/deepnec-2.0/test_*_output/
+backend/deepnec-2.0/example/test_*/

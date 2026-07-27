@@ -1,0 +1,86 @@
+/* Author: Naveen Duhan */
+@use "sass:list";
+@import '../colors';
+@import '../globals';
+
+
+// Color map for easy reference
+$colors: (
+  "1": $palette-1,
+  "2": $palette-2,
+  "3": $palette-3,
+  "4": $palette-4,
+  "5": $palette-5,
+  "6": $palette-6,
+  "7": $palette-7,
+  "8": $palette-8,
+  "9": $palette-9,
+  "10": $palette-10
+);
+
+// Shades map for dark versions
+$shades: (
+  "1": $palette-1-dark,
+  "2": $palette-2-dark,
+  "3": $palette-3-dark,
+  "4": $palette-4-dark,
+  "5": $palette-5-dark,
+  "6": $palette-6-dark,
+  "7": $palette-7-dark,
+  "8": $palette-8-dark,
+  "9": $palette-9-dark,
+  "10": $palette-10-dark
+);
+
+// Light color map
+$light-colors: (
+  "1": $palette-1-light,
+  "2": $palette-2-light,
+  "3": $palette-3-light,
+  "4": $palette-4-light,
+  "5": $palette-5-light,
+  "6": $palette-6-light,
+  "7": $palette-7-light,
+  "8": $palette-8-light,
+  "9": $palette-9-light,
+  "10": $palette-10-light
+);
+
+@each $num, $color in $colors {
+  .kbl-btn-#{$num} {
+    background: $color;
+    border-radius: $radius-btn;
+    border-color: $color;
+    font-weight: 500;
+    color: white;
+    transition: 0.3s;
+    box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.2)!important;
+
+    &:focus {
+      -webkit-box-shadow: 0px 0px 0px 2px rgba($color,0.48);
+      box-shadow: 0px 0px 0px 2px rgba($color,0.48);
+    }
+
+    &.disabled {
+      pointer-events: none;
+      background: #aeaeae!important;
+      border-color: #aeaeae!important;
+    }
+  }
+}
+
+@each $num, $shade in $shades {
+  .kbl-btn-#{$num} {
+    &:hover {
+      background: $shade;
+      border-color: $shade;
+      color: white;
+    }
+
+    &:focus {
+      background: $shade!important;
+      border-color: $shade!important;
+      color: white;
+    }
+  }
+}

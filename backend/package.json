@@ -1,0 +1,19 @@
+{
+  "name": "minpredbackend",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Naveen Duhan",
+  "license": "GPL-3.0-only",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --test",
+    "update": "npm i && pm2 restart minpredbackend"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.6.0",
+    "helmet": "^8.3.0"
+  }
+}

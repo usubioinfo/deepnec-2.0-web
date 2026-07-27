@@ -1,0 +1,95 @@
+/* Author: Naveen Duhan */
+@import './colors';
+@import './globals';
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  color: $text-main;
+  background: #fdfdfd;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.kbl-table {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(15, 36, 57, 0.04);
+  border: 1px solid $color-light-grey;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  caption-side: bottom;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  white-space: nowrap; // Prevent text wrapping
+
+  .kbl-thead {
+    background-color: $usu-aggie-blue;
+    border-bottom: 2px solid $color-light-grey;
+    color: white;
+
+    th {
+      padding: 12px 16px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+  }
+
+  tr {
+    border-bottom: 1px solid $color-light-grey;
+    background-color: #ffffff;
+    transition: background-color 0.2s ease;
+
+    &:nth-child(even) {
+      background-color: $usu-bg-stripe; // Alternating soft Aggie blue-gray stripe
+    }
+
+    &.select {
+      cursor: pointer;
+    }
+
+    &:last-child {
+      border-bottom: none!important;
+    }
+
+    td {
+      padding: 12px 16px;
+      font-size: 0.9rem;
+      color: $text-main;
+      vertical-align: middle;
+    }
+
+    &:hover {
+      background-color: #e6f4ff !important; // Soft Aggie Blue highlight hover tint
+
+      td {
+        background-color: transparent !important;
+      }
+    }
+  }
+}
+
+.table-responsive {
+  max-height: 480px;
+  padding: 5px 2px;
+  border: none;
+}
+
+.ant-divider {
+  box-sizing: border-box;
+  margin: 20;
+  padding: 20;
+  color: rgba(0,0,0,.85);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  font-feature-settings: "tnum";
+  border-top: 1px solid rgba(231, 131, 141, 0.212);
+}

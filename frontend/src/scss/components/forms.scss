@@ -1,0 +1,30 @@
+/* Author: Naveen Duhan */
+@use "sass:list";
+@import '../colors';
+@import '../globals';
+
+.form-control:focus {
+  outline: none!important;
+  box-shadow: none!important;
+}
+
+.kbl-form {
+  background: #ffffff!important;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: solid 1px #cbd5e1!important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03)!important;
+
+  &::placeholder {
+    color: #94a3b8;
+  }
+
+  &:hover {
+    border-color: $usu-slate-gray!important;
+  }
+
+  &:focus {
+    border-color: $usu-accent-blue!important;
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.15)!important;
+  }
+}

@@ -1,0 +1,73 @@
+/* Author: Naveen Duhan */
+@import "../../scss/colors";
+@import "../../scss/globals";
+
+.nav-wrapper {
+    background: $nav-back;
+    color: $usu-aggie-blue;
+    transition: 0.3s;
+
+    &:hover {
+      .h-brand {
+        color: $text-light!important;
+      }
+    }
+  }
+
+  .nav-link {
+    border-bottom: solid 2px transparent;
+    transition: 0.3s;
+    padding-bottom: 0px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $usu-aggie-blue!important;
+    opacity: 0.8;
+
+    &.current {
+      color: $usu-aggie-blue!important;
+      border-color: $usu-accent-blue;
+      opacity: 1;
+    }
+
+    &:hover:not(.current) {
+      border-color: $usu-accent-blue;
+      color: $usu-accent-blue!important;
+      opacity: 1;
+    }
+  }
+
+  .h-brand {
+    transition: 0.3s;
+    color: $usu-aggie-blue!important;
+  }
+
+  .contain {
+      background-color: $nav-back;
+      margin-top: 15px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      border-radius: 12px; // Modern rounded card header
+      border: 1px solid $color-light-grey;
+      box-shadow: 0 4px 12px rgba(15, 36, 57, 0.03);
+      transition: all 0.3s ease;
+
+      h3 {
+          color: $usu-aggie-blue;
+          font-weight: 700;
+          margin-bottom: 0;
+      }
+
+    &:hover {
+      border-color: $usu-slate-gray!important;
+      box-shadow: 0 8px 24px rgba(15, 36, 57, 0.06);
+    }
+  }
+
+  .divider {
+      background-color: $color-light-grey;
+  }
+
+  .imglab {
+    border: none;
+    border-radius: 8px;
+}

@@ -1,0 +1,10 @@
+{
+    "apps" : [
+      {
+        "name"      : "deepnec-2.0",
+        "script"    : "node",
+        "interpreter": "none",
+        "args": "server.js"
+      }
+    ]
+  }

@@ -1,0 +1,70 @@
+/* Author: Naveen Duhan */
+// Utah State University official brand identity colors
+$usu-aggie-blue: #0F2439; // Primary Aggie Blue
+$usu-slate-gray: #A2AAAD; // Secondary Slate Gray
+$usu-white: #FFFFFF;
+$usu-black: #000000;
+
+// Supporting Web UI colors
+$usu-accent-blue: #2B6CB0; // Accent interactive blue
+$usu-bg-light: #F8FAFC;    // Main body background
+$usu-bg-stripe: #F0F4F8;   // Alternating table stripes
+
+// Base colors
+$black: $usu-aggie-blue;
+$white: $usu-white;
+
+// Main color palettes remapped to USU brand
+$palette-1: #1e3a8a; // Darker Aggie Blue
+$palette-2: $usu-aggie-blue;
+$palette-3: $usu-aggie-blue; // Table headers, active states
+$palette-4: #3b82f6; // Lighter accent blue
+$palette-5: #60a5fa;
+$palette-6: $usu-aggie-blue;
+$palette-7: $usu-slate-gray;
+$palette-8: #94a3b8;
+$palette-9: $usu-accent-blue;
+$palette-10: #475569;
+
+// Light palettes
+$palette-1-light: #eff6ff;
+$palette-2-light: #f0fdf4;
+$palette-3-light: $usu-bg-stripe;
+$palette-4-light: #bfdbfe;
+$palette-5-light: #dbeafe;
+$palette-6-light: #e2e8f0;
+$palette-7-light: #f1f5f9;
+$palette-8-light: #f8fafc;
+$palette-9-light: #e0f2fe;
+$palette-10-light: #f1f5f9;
+
+// Dark palettes
+$palette-1-dark: #172554;
+$palette-2-dark: #0f172a;
+$palette-3-dark: #1e293b;
+$palette-4-dark: #1e3a8a;
+$palette-5-dark: #1d4ed8;
+$palette-6-dark: #0f172a;
+$palette-7-dark: #475569;
+$palette-8-dark: #334155;
+$palette-9-dark: #1e3a8a;
+$palette-10-dark: #0f172a;
+
+// Supporting colors
+$nav-outline: $usu-aggie-blue;
+$nav-outline-hvr:  $usu-accent-blue;
+$text-ghost: #64748b;
+$text-light: #ffffff;
+$text-main: #334155;
+$text-hard: #0f172a;
+$color-light-grey: #cbd5e1;
+
+// Backgrounds and pastel tones
+$palette-1-bg: #f8fafc;
+$palette-2-bg: #f1f5f9;
+$chip-bg: #eff6ff;
+$chip-font: #1e40af;
+$palette-1-pastel: #dbeafe;
+
+// Navigation background
+$nav-back: $usu-white;

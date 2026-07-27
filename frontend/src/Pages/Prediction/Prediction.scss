@@ -1,0 +1,100 @@
+/* Author: Naveen Duhan */
+@import "src/scss/colors";
+@import "src/scss/globals";
+
+
+.label-text {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
+.input-text {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.cold {
+    margin-left: 20px;
+    margin-right:20px;
+}
+.modal-query{
+    background-color: green;
+    color: white;
+}
+
+.loading {
+
+    background-color: 'transparent';
+    backface-visibility: hidden;
+}
+
+.contbg{
+    background-color: whitesmoke;
+}
+.ant-btn-primary {
+  background-color: $palette-2;
+  border-radius: 12px;
+}
+.ant-btn-primary:hover {
+  background-color: $palette-1;
+}
+
+
+  .ant-radio-checked .ant-radio-inner{
+    border-color:  #4fa2a2!important ;
+  }
+
+  .ant-radio-checked .ant-radio-inner:after{
+    background-color:  #4fa2a2;;;
+  }
+
+  .ant-radio:hover .ant-radio-inner {
+    border-color:  #4fa2a2;; ;
+  }
+
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #4fa2a2;
+    border-color: #4fa2a2;
+  }
+
+  .ant-btn-primary {
+    background-color: $palette-1!important;
+    border-radius: 12px;
+    }
+
+    .ant-btn-primary:hover {
+    background-color: $palette-1-dark;
+    }
+
+    .ant-radio-checked .ant-radio-inner{
+        border-color:  #288DC2!important ;
+    }
+
+    .ant-radio-checked .ant-radio-inner:after{
+        background-color:  #288DC2;;;
+    }
+
+    .ant-radio:hover .ant-radio-inner {
+        border-color:  #288DC2;; ;
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner {
+        background-color: #288DC2;
+        border-color: #288DC2;
+    }
+
+    .checkbox-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; // Adjust alignment as needed
+        // gap: 5px; // Space between checkboxes
+    }
+
+    .checkbox-item {
+        margin-bottom: 7px;
+    }

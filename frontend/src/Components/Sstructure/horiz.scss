@@ -1,0 +1,8 @@
+/* Author: Naveen Duhan */
+.button-container {
+    margin-top: 20px; /* Adjust this value as needed */
+    display: flex;
+    justify-content: center; /* Centers the buttons */
+    gap: 10px; /* Adds space between the buttons */
+    z-index: 100; /* Ensure buttons are on top */
+  }
