@@ -6,7 +6,7 @@ const runDeepNEC = require('../prediction/run-deepnec');
 const downloadProteinSequence = require('../prediction/downloaduniprot');
 
 class JobQueueManager {
-    constructor(maxConcurrent = 2, expirationMs = 24 * 60 * 60 * 1000) {
+    constructor(maxConcurrent = 1, expirationMs = 24 * 60 * 60 * 1000) {
         this.maxConcurrent = maxConcurrent;
         this.expirationMs = expirationMs;
         this.jobs = new Map(); // jobId -> JobState
@@ -150,5 +150,9 @@ class JobQueueManager {
     }
 }
 
-const jobQueue = new JobQueueManager();
+const configuredConcurrency = Number.parseInt(process.env.MAX_CONCURRENT_JOBS || '1', 10);
+const maxConcurrentJobs = Number.isInteger(configuredConcurrency) && configuredConcurrency > 0
+    ? configuredConcurrency
+    : 1;
+const jobQueue = new JobQueueManager(maxConcurrentJobs);
 module.exports = jobQueue;

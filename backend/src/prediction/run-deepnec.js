@@ -3,6 +3,9 @@ const { execFile } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 
+const MAX_PROCESS_OUTPUT = 10 * 1024 * 1024;
+const ERROR_OUTPUT_TAIL = 4000;
+
 const writeProgress = (outdir, percent, stage) => {
     try {
         if (!fs.existsSync(outdir)) {
@@ -19,9 +22,30 @@ const writeProgress = (outdir, percent, stage) => {
 
 const runFileAsync = (file, args, options) => {
     return new Promise((resolve, reject) => {
-        execFile(file, args, options, (error, stdout, stderr) => {
+        execFile(file, args, { ...options, maxBuffer: MAX_PROCESS_OUTPUT }, (error, stdout, stderr) => {
             if (error) {
-                reject(error);
+                const output = (stderr || stdout || '').trim().slice(-ERROR_OUTPUT_TAIL);
+                let message;
+
+                if (error.signal === 'SIGKILL') {
+                    message = 'DeepNEC was terminated by SIGKILL, most likely because the container or host ran out of memory. Run one job at a time and provide at least 8 GB RAM.';
+                } else if (error.code === 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER') {
+                    message = 'DeepNEC produced more diagnostic output than the backend could capture.';
+                } else {
+                    const exitDetail = error.code !== null && error.code !== undefined
+                        ? `exit code ${error.code}`
+                        : `signal ${error.signal || 'unknown'}`;
+                    message = `DeepNEC exited with ${exitDetail}.`;
+                }
+
+                if (output) {
+                    message += `\n${output}`;
+                }
+
+                const processError = new Error(message);
+                processError.code = error.code;
+                processError.signal = error.signal;
+                reject(processError);
             } else {
                 resolve({ stdout, stderr });
             }
@@ -66,7 +90,9 @@ const runDeepNEC = async (namer, phase, file, outdir, ecnumber, evalue, identity
     const envOptions = {
         env: {
             ...process.env,
-            PYTHONPATH: path.dirname(scriptPath)
+            PYTHONPATH: path.dirname(scriptPath),
+            PYTHONUNBUFFERED: '1',
+            TF_CPP_MIN_LOG_LEVEL: '3'
         }
     };
 
