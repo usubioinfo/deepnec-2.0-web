@@ -1,12 +1,8 @@
 // Author: Naveen Duhan
 import {select as d3Select } from 'd3-selection';
 import * as d3 from 'd3';
-require('blueimp-canvas-to-blob');
-var FileSaver = require('file-saver');
-//require('/home/dbuchan/Code/biod3/node_modules/blueimp-canvas-to-blob');
-//require('/Users/dbuchan/Code/biod3/node_modules/blueimp-canvas-to-blob');
-//const FileSaver = require('/home/dbuchan/Code/biod3/node_modules/file-saver');
-//const FileSaver = require('/Users/dbuchan/Code/biod3/node_modules/file-saver');
+import 'blueimp-canvas-to-blob';
+import { saveAs } from 'file-saver';
 
 const protoChart = {
   chartType: false, // can be one of 'line', 'grid'
@@ -396,7 +392,7 @@ export function writeSVGDownloadLink(label){
     html = html.replace(/<g id="toggle".+?<\/g>/, '');
     html = html.replace(/<g id="buttons".+?<\/g>/, '');
     let blob = new Blob([html], {type: "image/svg+xml"});
-    FileSaver.saveAs(blob, label+".svg");
+    saveAs(blob, label+".svg");
 }
 
 // assuming your chart has a chart.buttons this will add a pair of
@@ -466,7 +462,7 @@ function save_helper(chart, type, label)
     svgString2Image( svgString, 2*chart.width, 2*chart.height, 'png', save ); // passes Blob and filesize String to the callback
 
     function save( dataBlob, filesize ){
-      FileSaver.saveAs( dataBlob, label+".png" ); // FileSaver.js function
+      saveAs( dataBlob, label+".png" ); // FileSaver.js function
     }
   });
   d3.select('#'+label+'svg'+type)
