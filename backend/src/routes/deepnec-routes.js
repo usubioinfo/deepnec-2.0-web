@@ -45,8 +45,8 @@ router.post("/jobs", (req, res) => {
             jobId,
             status: 'queued',
             message: 'Job submitted successfully.',
-            statusUrl: `/api/jobs/${jobId}/status`,
-            resultsUrl: `/api/jobs/${jobId}/results`
+            statusUrl: `${req.baseUrl}/jobs/${jobId}/status`,
+            resultsUrl: `${req.baseUrl}/jobs/${jobId}/results`
         });
     } catch (err) {
         console.error("Error submitting job:", err);
@@ -207,7 +207,7 @@ router.route("/struct").get(async (req, res) => {
             res.send(JSON.stringify({
                 atoms: jsonData.atoms,
                 sequence: rawSequence,
-                pdbUrl: `/api/download-file/${namer}_${safeAcc}.pdb`
+                pdbUrl: `${req.baseUrl}/download-file/${namer}_${safeAcc}.pdb`
             }));
         });
     } catch (err) {

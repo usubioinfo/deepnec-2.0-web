@@ -41,15 +41,15 @@ const predictionLimiter = rateLimit({
     message: { error: "Too many prediction requests from this IP, please try again after 15 minutes." }
 });
 
-app.use('/api/prediction', predictionLimiter);
-app.use('/api/nextpred', predictionLimiter);
+app.use(['/api/prediction', '/deepnec-2.0/api/prediction'], predictionLimiter);
+app.use(['/api/nextpred', '/deepnec-2.0/api/nextpred'], predictionLimiter);
 
 // 4. Request Body Size Limits
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // 5. Mount API Routes (Controlled download endpoints handle file access; no public /api/tmp exposure)
-app.use("/api", routes);
+app.use(['/api', '/deepnec-2.0/api'], routes);
 
 // 6. Serve the production frontend from the same origin as the API.
 const frontendBuild = path.join(__dirname, 'frontend', 'build');

@@ -23,6 +23,14 @@ test('health endpoint reports a healthy service', async () => {
     });
 });
 
+test('mounted health endpoint reports a healthy service', async () => {
+    await withServer(async baseUrl => {
+        const response = await fetch(`${baseUrl}/deepnec-2.0/api/jobs/health`);
+        assert.equal(response.status, 200);
+        assert.equal((await response.json()).status, 'healthy');
+    });
+});
+
 test('secondary-structure endpoint rejects traversal-like accessions', async () => {
     await withServer(async baseUrl => {
         const query = new URLSearchParams({ namer: 'valid-job', acc_extract: '../../etc/passwd' });
