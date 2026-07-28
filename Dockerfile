@@ -43,13 +43,21 @@ RUN mkdir -p /app/backend/deepnec-2.0 && \
       | tar -xz -C /app/backend/deepnec-2.0 --strip-components=1 && \
     pip install --no-cache-dir -e /app/backend/deepnec-2.0
 
-# Install the separately licensed S4PRED component and its checksum-pinned weights.
+# Install the separately licensed S4PRED component from a pinned upstream commit
+# and verify both its weights and a real inference before completing the image.
+ARG S4PRED_REPO=psipred/s4pred
+ARG S4PRED_REF=5bc16ee55d98015ca4bbdc6741ab0c64f6f7744b
 ARG S4PRED_WEIGHTS_URL=https://bioinf.cs.ucl.ac.uk/downloads/s4pred/weights.tar.gz
-COPY s4pred /s4pred
-RUN curl -fsSL "$S4PRED_WEIGHTS_URL" -o /tmp/s4pred-weights.tar.gz && \
+RUN mkdir -p /s4pred && \
+    curl -fsSL "https://github.com/${S4PRED_REPO}/archive/${S4PRED_REF}.tar.gz" \
+      | tar -xz -C /s4pred --strip-components=1 && \
+    curl -fsSL "$S4PRED_WEIGHTS_URL" -o /tmp/s4pred-weights.tar.gz && \
     echo "e04ad7d10b61551f7e07a86b65bb88dc  /tmp/s4pred-weights.tar.gz" | md5sum -c - && \
     tar -xzf /tmp/s4pred-weights.tar.gz -C /s4pred && \
-    rm -f /tmp/s4pred-weights.tar.gz
+    rm -f /tmp/s4pred-weights.tar.gz && \
+    python3 /s4pred/run_model.py -T 1 -t horiz /s4pred/example/1qys.fas > /tmp/s4pred-smoke.horiz && \
+    grep -q '^Pred:' /tmp/s4pred-smoke.horiz && \
+    rm -f /tmp/s4pred-smoke.horiz
 
 # Copy built frontend assets and backend
 COPY --from=frontend-builder /app/frontend/build /app/backend/frontend/build

@@ -48,11 +48,18 @@ deepnec-2.0-web/
 # Build Docker image
 bash dockerbuild.sh
 
-# Run Docker container
-docker run --rm -p 3365:3365 deepnec-2.0-web:latest
+# Run Docker container. Keep the credential file outside the repository.
+docker run --rm --env-file /etc/deepnec.env -p 3365:3365 deepnec-2.0-web:latest
 ```
 
-Open `http://localhost:3365/deepnec-2.0/`. The production image serves the frontend and API from the same container and port. During the image build, DeepNEC CLI `v2.0.2` is downloaded from `usubioinfo/deepnec-2.0`; the official S4PRED weights are downloaded and verified against the upstream MD5 checksum. Override the CLI source when needed with Docker build arguments `DEEPNEC_REPO` and `DEEPNEC_REF`.
+Open `http://localhost:3365/deepnec-2.0/`. The production image serves the frontend and API from the same container and port. During the image build, DeepNEC CLI `v2.0.2` is downloaded from `usubioinfo/deepnec-2.0`; S4PRED is downloaded from its pinned upstream commit, its official weights are verified against the upstream MD5 checksum, and a real S4PRED inference smoke test is run. Override the pinned sources when needed with Docker build arguments.
+
+For Swiss-Model fallback, create `/etc/deepnec.env` on the server with permissions `600` and the following values. Never commit this file or token:
+
+```dotenv
+SWISS_MODEL_TOKEN=replace_with_your_swiss_model_token
+MAX_CONCURRENT_JOBS=1
+```
 
 ### Option 2: Local Development Setup
 

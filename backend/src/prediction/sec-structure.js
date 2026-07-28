@@ -37,7 +37,18 @@ const SecStructure = (infile, outfile) => {
         pythonPath = '/Users/naveen/miniconda3/envs/deepml/bin/python';
     }
 
-    const output = execFileSync(pythonPath, [s4predPath, '-t', 'horiz', infile]);
+    if (!fs.existsSync(s4predPath)) {
+        throw new Error(`S4PRED executable not found at ${s4predPath}. Rebuild the Docker image with the pinned S4PRED source.`);
+    }
+
+    const output = execFileSync(
+        pythonPath,
+        [s4predPath, '-T', '1', '-t', 'horiz', infile],
+        { encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 }
+    );
+    if (!output.includes('Pred:')) {
+        throw new Error('S4PRED completed without returning a secondary-structure prediction.');
+    }
     fs.writeFileSync(outfile, output);
 
     return Promise.resolve(outfile);
